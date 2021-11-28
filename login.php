@@ -108,7 +108,7 @@
     <div class="mb-3">
       <label for="captcha_code" class="d-block input-label">Captcha</label>
       <img src="captcha.php" />
-        <input type="text" class="input-field" name="captcha_code" id="captcha_code"/>
+        <input type="text" class="input-field" name="captcha_code" id="captcha_code" value=""/>
         <span class = "text-warning"><?php echo $captErr;?></span>
     </div>
       <button type="submit" class="btn btn-primary">Submit</button>
