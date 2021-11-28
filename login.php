@@ -47,7 +47,6 @@
               // else if (!(empty($_POST["captcha_code"]))){
               //   $captErr = "Captcha tidak sesuai";
               // }
-              else {
               
                 include "conection_database.php";
                 
@@ -71,12 +70,7 @@
                   $data = stripslashes($data);
                   $data = htmlspecialchars($data);
                   return $data;
-              }
-              }
-                
-                
-            
-            
+              }  
             
         ?>
 
