@@ -76,10 +76,6 @@
                 }
                 
               }
-              // else if (!(empty($_POST["captcha_code"]))){
-              //   $captErr = "Captcha tidak sesuai";
-              // }
-              
                 
                 function test_input($data) {
                   $data = trim($data);
@@ -115,6 +111,7 @@
   </form>
   </table>
   <a href="registration.php" >Register Here</a>
+  <!-- <a href="forgot_pass.php">forgot password</a> -->
 
     <!-- Optional JavaScript; choose one of the two! -->
 
