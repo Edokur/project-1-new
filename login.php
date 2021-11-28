@@ -42,8 +42,8 @@
                     }else {
                         $capt = md5($_POST["captcha_code"]);
                     }
-                }
-                include "conection_database.php";
+                }else{
+                  include "conection_database.php";
                 
                 $sql="SELECT * FROM users WHERE email='$email' AND password='$pass'";
                 $sql2="UPDATE users SET captcha ='$capt' where email ='$email'";
@@ -60,6 +60,8 @@
                     header("location:dashboard.php");
                 }
                 mysqli_close($con);
+                }
+                
               }
               // else if (!(empty($_POST["captcha_code"]))){
               //   $captErr = "Captcha tidak sesuai";
