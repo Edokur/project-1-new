@@ -43,6 +43,12 @@
                         $capt = md5($_POST["captcha_code"]);
                     }
                 }
+              }
+              // else if (!(empty($_POST["captcha_code"]))){
+              //   $captErr = "Captcha tidak sesuai";
+              // }
+              else {
+              
                 include "conection_database.php";
                 
                 $sql="SELECT * FROM users WHERE email='$email' AND password='$pass'";
@@ -60,14 +66,17 @@
                     header("location:dashboard.php");
                 }
                 mysqli_close($con);
-                }
+                function test_input($data) {
+                  $data = trim($data);
+                  $data = stripslashes($data);
+                  $data = htmlspecialchars($data);
+                  return $data;
+              }
+              }
+                
+                
             
-            function test_input($data) {
-                $data = trim($data);
-                $data = stripslashes($data);
-                $data = htmlspecialchars($data);
-                return $data;
-            }
+            
             
         ?>
 
@@ -78,7 +87,7 @@
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="d-block input-label">Email Address</label>
-      <input class="input-field" type="email" name="email_user" id="exampleInputEmail1" placeholder="Your Email Address" autocomplete="on" >
+      <input class="input-field" type="email" name="email_user" id="exampleInputEmail1" placeholder="Your Email Address" autocomplete="on" value="<?php echo $email; ?>" >
       <span class = "text-warning"><?php echo $emailErr;?></span>
     </div>
       <div class="mb-3">

@@ -88,17 +88,17 @@ function test_input($data) {
   <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="d-block input-label">Fullname</label>
-      <input class="input-field" type="text" name="nama_user" id="exampleInputEmail1" placeholder="Your Fullname" autocomplete="on" >
+      <input class="input-field" type="text" name="nama_user" id="exampleInputEmail1" placeholder="Your Fullname" autocomplete="on" value="<?php echo $nama; ?>">
       <span class = "text-warning"><?php echo $namaErr;?></span>
     </div>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="d-block input-label">Username</label>
-      <input class="input-field" type="text" name="username_user" id="exampleInputEmail1" placeholder="Your Username" autocomplete="on" >
+      <input class="input-field" type="text" name="username_user" id="exampleInputEmail1" placeholder="Your Username" autocomplete="on" value="<?php echo $user; ?>">
       <span class = "text-warning"><?php echo $userErr;?></span>
     </div>
     <div class="mb-3">
       <label for="exampleInputEmail1" class="d-block input-label">Email Address</label>
-      <input class="input-field" type="email" name="email_user" id="exampleInputEmail1" placeholder="Your Email Address" autocomplete="on" >
+      <input class="input-field" type="email" name="email_user" id="exampleInputEmail1" placeholder="Your Email Address" autocomplete="on" value="<?php echo $email; ?>">
       <span class = "text-warning"><?php echo $emailErr;?></span>
     </div>
     <div class="mb-3">
@@ -119,6 +119,7 @@ function test_input($data) {
     </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    <a href="login.php">login akun</a>
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
