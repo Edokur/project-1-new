@@ -9,6 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <?php
+    session_start();
+    
 // define variables and set to empty values
 $namaErr = $userErr = $emailErr = $passErr = $pass2Err = $captErr = "";
 $nama = $user = $email = $pass = $pass2 = $capt = "";
@@ -66,11 +68,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $emailUser = $_POST['email_user'];
       $passwordUser = md5($_POST['password_user']);
       $capt = md5($_POST['captcha_code']);
-  
-      $sql = "INSERT INTO users(username, nama_lengkap, email, password, captcha) VALUES ('$usernameUser', '$namaUser','$emailUser', '$passwordUser', '$capt')";
+
+      if ($_SESSION["captcha_code"] != $_POST["captcha_code"]) {
+        echo "<script>alert('captcha tidak sesuai');</script>";
+      }else{
+        $sql = "INSERT INTO users(username, nama_lengkap, email, password, captcha) VALUES ('$usernameUser', '$namaUser','$emailUser', '$passwordUser', '$capt')";
       $query=mysqli_query($con, $sql);
       mysqli_close($con);
       header('location:login.php');
+      }
+      
     }
     
 }

@@ -1,5 +1,6 @@
 <?php
     session_start();
+    $_SESSION["captcha_code"] = "";
     $random_alpha = md5(rand());
     $captcha_code = substr($random_alpha, 0, 6);
     $_SESSION["captcha_code"] = $captcha_code;

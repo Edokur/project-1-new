@@ -44,21 +44,34 @@
                     }
                 }else{
                   include "conection_database.php";
-                
-                $sql="SELECT * FROM users WHERE email='$email' AND password='$pass'";
-                $sql2="UPDATE users SET captcha ='$capt' where email ='$email'";
-            
-                $update=mysqli_query($con, $sql2);
-                $login=mysqli_query($con,$sql);
-                $ketemu=mysqli_num_rows($login);
-                $r= mysqli_fetch_array($login);
-                if ($ketemu > 0){
-                    session_start();
-                    $_SESSION['emailUser'] = $emailUser;
-                    $_SESSION['status'] = "login";
-                    echo"USER BERHASIL LOGIN<br>";
-                    header("location:dashboard.php");
+                  $emailUser = $_POST['email_user'];
+                  $passwordUser = md5($_POST['password_user']);
+                  $capt = md5($_POST['captcha_code']);
+
+                $sql="SELECT * FROM users WHERE email='$emailUser' AND password='$passwordUser'";
+                $sql2="UPDATE users SET captcha ='$capt' where email ='$emailUser'";
+
+                if ($_SESSION["captcha_code"] != $_POST["captcha_code"]){
+                  echo "<script>alert('captcha tidak sesuai');</script>";
+                }else{
+                  $update=mysqli_query($con, $sql2);
+                  $login=mysqli_query($con,$sql);
+                  $ketemu=mysqli_num_rows($login);
+                  $r= mysqli_fetch_array($login);
+                  if ($ketemu > 0){
+                      session_start();
+                      $_SESSION['emailUser'] = $emailUser;
+                      $_SESSION['status'] = "login";
+                      echo"USER BERHASIL LOGIN<br>";
+                      header("location:dashboard.php");
+                  }else{
+                    echo "<script>
+                      alert('Login gagal! username & password tidak benar');
+                      window.location = login.php;
+                      </script>";
+                  }
                 }
+                
                 mysqli_close($con);
                 }
                 
