@@ -21,7 +21,6 @@
                 {
                     if (empty($_POST["email_user"])) {   //digunakan untuk mengecek email supaya tidak kosong 
                         $emailErr = "Email harus diisi";
-                        header('location:login.php');
                     }else {
                         $email = $_POST["email_user"];
                 
@@ -44,7 +43,7 @@
                         $capt = md5($_POST["captcha_code"]);
                     }
                 }
-                include "connection_database.php";
+                include "conection_database.php";
                 
                 $sql="SELECT * FROM users WHERE email='$email' AND password='$pass'";
                 $sql2="UPDATE users SET captcha ='$capt' where email ='$email'";
@@ -58,10 +57,10 @@
                     $_SESSION['emailUser'] = $emailUser;
                     $_SESSION['status'] = "login";
                     echo"USER BERHASIL LOGIN<br>";
-                    header("location:../dashboard.php");
+                    header("location:dashboard.php");
                 }
                 mysqli_close($con);
-            }
+                }
             
             function test_input($data) {
                 $data = trim($data);
@@ -71,10 +70,32 @@
             }
             
         ?>
-        
+
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    
+  <table>
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="d-block input-label">Email Address</label>
+      <input class="input-field" type="email" name="email_user" id="exampleInputEmail1" placeholder="Your Email Address" autocomplete="on" >
+      <span class = "text-warning"><?php echo $emailErr;?></span>
+    </div>
+      <div class="mb-3">
+      <label for="password-content-3-6" class="d-block input-label">Password</label>
+      <input class="input-field" type="password" name="password_user" id="password-content-3-6" placeholder="Your Password">
+        <span class = "text-warning"><?php echo $passErr;?></span>
+    </div>
+    <div class="mb-3">
+      <label for="captcha_code" class="d-block input-label">Captcha</label>
+      <img src="captcha.php" />
+        <input type="text" class="input-field" name="captcha_code" id="captcha_code"/>
+        <span class = "text-warning"><?php echo $captErr;?></span>
+    </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </table>
+  <a href="registration.php" >Register Here</a>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
