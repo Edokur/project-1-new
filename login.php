@@ -10,7 +10,7 @@
 
 
     <?php
-            
+            session_start();
             // define variables and set to empty values
             $emailErr = $passErr = $captErr = "";
             $email = $pass = $capt = "";
