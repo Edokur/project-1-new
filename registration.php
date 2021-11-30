@@ -210,7 +210,7 @@ function test_input($data) {
                 <input type="submit" value="Register" name="register" class="btn btn-fill text-white d-block w-100">
             </form>
             <p class="text-center bottom-caption">Do You have account ?
-                <span class="green-bottom-caption"><a href="Proses Login/login.php">Login Here</a></span>
+                <span class="green-bottom-caption"><a href="login.php">Login Here</a></span>
             </p>
             </div>
         </div>
