@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         
         if (empty($_POST["password_user2"])) {     //mengecek supaya komentar tidak kosong
-          $pass2Err = "Password tidak boleh kosong";
+            $pass2Err = "Password tidak boleh kosong";
             if ($pass2 !== $pass) {
                 $pass2Err = "Password tidak sama";
             }
@@ -62,22 +62,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $capt = md5($_POST["captcha_code"]);
         }
     }else{
-      include "conection_database.php";
-      $namaUser = $_POST['nama_user'];
-      $usernameUser = $_POST['username_user'];
-      $emailUser = $_POST['email_user'];
-      $passwordUser = md5($_POST['password_user']);
-      $capt = md5($_POST['captcha_code']);
+        include "conection_database.php";
+        $namaUser = $_POST['nama_user'];
+        $usernameUser = $_POST['username_user'];
+        $emailUser = $_POST['email_user'];
+        $passwordUser = md5($_POST['password_user']);
+        $capt = md5($_POST['captcha_code']);
 
-      if ($_SESSION["captcha_code"] != $_POST["captcha_code"]) {
-        echo "<script>alert('captcha tidak sesuai');</script>";
-      }else{
-        $sql = "INSERT INTO users(username, nama_lengkap, email, password, captcha) VALUES ('$usernameUser', '$namaUser','$emailUser', '$passwordUser', '$capt')";
-      $query=mysqli_query($con, $sql);
-      mysqli_close($con);
-      header('location:login.php');
-      }
-      
+        if ($_SESSION["captcha_code"] != $_POST["captcha_code"]) {
+            echo "<script>alert('captcha tidak sesuai');</script>";
+        }else{
+            $sql = "INSERT INTO users(username, nama_lengkap, email, password, captcha) VALUES ('$usernameUser', '$namaUser','$emailUser', '$passwordUser', '$capt')";
+        $query=mysqli_query($con, $sql);
+        mysqli_close($con);
+        header('location:login.php');
+        }
+    
     }
     
 }
