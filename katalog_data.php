@@ -24,12 +24,22 @@
       </tr>
         <?php 
         include "conection_database.php";
-        $no = 1;
-        $data = mysqli_query($con, "SELECT * FROM Produk");
-        while ($x = mysqli_fetch_array($data)) {
+        $batas = 10;
+        $halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
+				$halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
+				$previous = $halaman - 1;
+				$next = $halaman + 1;
+				
+				$data = mysqli_query($con,"SELECT * FROM produk");
+				$jumlah_data = mysqli_num_rows($data);
+				$total_halaman = ceil($jumlah_data / $batas);
+
+				$data_produk = mysqli_query($con,"SELECT * FROM produk LIMIT $halaman_awal, $batas");
+				$nomor = $halaman_awal+1;
+        while ($x = mysqli_fetch_array($data_produk)) {
       ?>
       <tr>
-        <td><?php echo $no++; ?></td>
+        <td><?php echo $nomor++; ?></td>
         <td><?php echo $x['nama_produk']; ?></td>
         <td><?php echo $x['harga_produk']; ?></td>
         <td><?php echo $x['stock_produk']; ?></td>
@@ -44,7 +54,25 @@
         ?>
     </table>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <nav>
+			<ul class="pagination justify-content-center">
+				<li class="page-item">
+					<a class="page-link" <?php if($halaman > 1){ echo "href='?halaman=$Previous'"; } ?>>Previous</a>
+				</li>
+				<?php 
+				for($x=1;$x<=$total_halaman;$x++){
+					?> 
+					<li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
+					<?php
+				}
+				?>				
+				<li class="page-item">
+					<a  class="page-link" <?php if($halaman < $total_halaman) { echo "href='?halaman=$next'"; } ?>>Next</a>
+				</li>
+			</ul>
+		</nav>
+
+
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
