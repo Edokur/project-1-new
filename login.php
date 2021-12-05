@@ -93,7 +93,7 @@
         style="font-family: 'Poppins', sans-serif;">
         <div class="position-relative d-none d-lg-block h-100 width-left">
             <img class="position-absolute img-fluid centered" width="100%"
-            src="images/welcome.png"
+            src="img/welcome.png"
             alt="">
         </div>
         <div class="d-flex mx-auto align-items-left justify-content-left width-right mx-lg-0">
