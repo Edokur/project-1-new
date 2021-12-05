@@ -19,7 +19,13 @@
     
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-
+    <?php
+        include "../conection_database.php";
+        session_start();
+        if($_SESSION['status'] !="login"){
+            header("location:../login.php");
+        }
+    ?>
 </head>
 
 <body id="page-top">
@@ -32,9 +38,9 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
+                <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
-                </div>
+                </div> -->
                 <div class="sidebar-brand-text mx-3">Toko Az Zahra</div>
             </a>
 
@@ -42,8 +48,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item active">
+                <a class="nav-link " href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -58,17 +64,17 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-tools"></i>
                     <span>New Product</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-tools"></i>
                     <span>Discount Product</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-tools"></i>
                     <span>Old Product</span></a>
             </li>
             
@@ -120,7 +126,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['emailUser'];?></span>
                                 <img class="img-profile rounded-circle"
                                     src="../img/undraw_profile.svg">
                             </a>
@@ -161,12 +167,12 @@
                     </h3>
                     <div class="row">
 
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="col-xl-3 col-md-4 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                 New Product</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
                                         </div>
@@ -177,12 +183,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="col-xl-3 col-md-4 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Discount Product</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
                                         </div>
@@ -193,12 +199,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="col-xl-3 col-md-4 mb-4">
+                            <div class="card border-left-danger shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                                 Old Product</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
                                         </div>
@@ -218,16 +224,18 @@
                     <thead>
                         <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Kode Product</th>
-                        <th scope="col">Nama Product</th>
-                        <th scope="col">Harga Product</th>
-                        <th scope="col">Stock Product</th>
-                        <th scope="col">Detail Product</th>
+                        <th scope="col">Foto Produk</th>
+                        <th scope="col">Kode Produk</th>
+                        <th scope="col">Nama Produk</th>
+                        <th scope="col">Harga Produk</th>
+                        <th scope="col">Stock Produk</th>
+                        <th scope="col">Detail Produk</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                         <th scope="row">1</th>
+                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -247,6 +255,7 @@
                         <tr>
                         <tr>
                         <th scope="row">2</th>
+                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -265,6 +274,7 @@
                         </tr>
                         <tr>
                         <th scope="row">3</th>
+                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -290,17 +300,18 @@
                     <thead>
                         <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Kode Product</th>
-                        <th scope="col">Nama Product</th>
-                        <th scope="col">Harga Product</th>
-                        <th scope="col">Stock Product</th>
-                        <th scope="col">Detail Product</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Foto Produk</th>
+                        <th scope="col">Kode Produk</th>
+                        <th scope="col">Nama Produk</th>
+                        <th scope="col">Harga Produk</th>
+                        <th scope="col">Stock Produk</th>
+                        <th scope="col">Detail Produk</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                         <th scope="row">1</th>
+                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -320,6 +331,7 @@
                         <tr>
                         <tr>
                         <th scope="row">2</th>
+                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -338,6 +350,7 @@
                         </tr>
                         <tr>
                         <th scope="row">3</th>
+                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -363,17 +376,18 @@
                     <thead>
                         <tr>
                         <th scope="col">No</th>
-                        <th scope="col">Kode Product</th>
-                        <th scope="col">Nama Product</th>
-                        <th scope="col">Harga Product</th>
-                        <th scope="col">Stock Product</th>
-                        <th scope="col">Detail Product</th>
-                        <th scope="col">Action</th>
+                        <th scope="col">Foto Produk</th>
+                        <th scope="col">Kode Produk</th>
+                        <th scope="col">Nama Produk</th>
+                        <th scope="col">Harga Produk</th>
+                        <th scope="col">Stock Produk</th>
+                        <th scope="col">Detail Produk</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                         <th scope="row">1</th>
+                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -393,6 +407,7 @@
                         <tr>
                         <tr>
                         <th scope="row">2</th>
+                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -411,6 +426,7 @@
                         </tr>
                         <tr>
                         <th scope="row">3</th>
+                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>@mdo</td>
@@ -471,7 +487,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="../logout.php">Logout</a>
                 </div>
             </div>
         </div>

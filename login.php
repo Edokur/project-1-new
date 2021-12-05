@@ -63,7 +63,7 @@
                       $_SESSION['emailUser'] = $emailUser;
                       $_SESSION['status'] = "login";
                       echo"USER BERHASIL LOGIN<br>";
-                      header("location:dashboard.php");
+                      header("location:Dasboard/dashboard2.php");
                   }else{
                     echo "<script>
                       alert('Login gagal! username & password tidak benar');
