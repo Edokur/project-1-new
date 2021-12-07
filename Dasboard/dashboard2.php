@@ -1,3 +1,7 @@
+<?php 
+include "../conection_database.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -233,64 +237,24 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php 
+                            $sql = "SELECT * FROM produk ORDER BY id_produk DESC LIMIT 5";
+                            $no = 1;
+                            $data = mysqli_query($con, $sql);
+                            while($x = mysqli_fetch_array($data)){
+                        ?>
                         <tr>
-                        <th scope="row">1</th>
-                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <!-- <td>
-                            <a href="" class="bg-success p-2 rounded text-white">
-                                <i class="far fa-edit text-white"></i>
-                                Edit
-                            </a>
-                            <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                <i class="far fa-trash-alt text-white"></i>
-                                Delete
-                            </a>
-                        </td> -->
+                        <th scope="row"><?php echo $no++; ?></th>
+                        <td><img src="gambar/<?php echo $x['foto_produk']; ?>" class="img-thumbnail" width="100px" alt=""></td>
+                            <td><?php echo $x['kode_produk']; ?></td>
+                            <td><?php echo $x['nama_produk']; ?></td>
+                            <td><?php echo $x['harga_produk']; ?></td>
+                            <td><?php echo $x['stock_produk']; ?></td>
+                            <td><?php echo $x['detail_produk']; ?></td>
                         </tr>
-                        <tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <!-- <td>
-                            <a href="" class="bg-success p-2 rounded text-white">
-                                <i class="far fa-edit text-white"></i>
-                                Edit
-                            </a>
-                            <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                <i class="far fa-trash-alt text-white"></i>
-                                Delete
-                            </a>
-                        </td> -->
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <!-- <td>
-                            <a href="" class="bg-success p-2 rounded text-white">
-                                <i class="far fa-edit text-white"></i>
-                                Edit
-                            </a>
-                            <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                <i class="far fa-trash-alt text-white"></i>
-                                Delete
-                            </a>
-                        </td> -->
-                        </tr>
+                        <?php 
+                            }
+                        ?>
                     </tbody>
                 </table>`
                 <h3 class="my-3">
@@ -309,64 +273,24 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <?php 
+                            $sql = "SELECT * FROM produk";
+                            $no = 1;
+                            $data = mysqli_query($con, $sql);
+                            while($x = mysqli_fetch_array($data)){
+                        ?>
                         <tr>
-                        <th scope="row">1</th>
-                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <!-- <td>
-                            <a href="" class="bg-success p-2 rounded text-white">
-                                <i class="far fa-edit text-white"></i>
-                                Edit
-                            </a>
-                            <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                <i class="far fa-trash-alt text-white"></i>
-                                Delete
-                            </a>
-                        </td> -->
+                            <th scope="row"><?php echo $no++; ?></th>
+                            <td><img src="gambar/<?php echo $x['foto_produk']; ?>" class="img-thumbnail" width="100px" alt=""></td>
+                            <td><?php echo $x['kode_produk']; ?></td>
+                            <td><?php echo $x['nama_produk']; ?></td>
+                            <td><?php echo $x['harga_produk']; ?></td>
+                            <td><?php echo $x['stock_produk']; ?></td>
+                            <td><?php echo $x['detail_produk']; ?></td>
                         </tr>
-                        <tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <!-- <td>
-                            <a href="" class="bg-success p-2 rounded text-white">
-                                <i class="far fa-edit text-white"></i>
-                                Edit
-                            </a>
-                            <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                <i class="far fa-trash-alt text-white"></i>
-                                Delete
-                            </a>
-                        </td> -->
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <!-- <td>
-                            <a href="" class="bg-success p-2 rounded text-white">
-                                <i class="far fa-edit text-white"></i>
-                                Edit
-                            </a>
-                            <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                <i class="far fa-trash-alt text-white"></i>
-                                Delete
-                            </a>
-                        </td> -->
-                        </tr>
+                        <?php 
+                            }
+                        ?>
                     </tbody>
                 </table>`
                 <h3 class="my-3">
