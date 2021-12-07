@@ -64,12 +64,12 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-tools"></i>
+                    <i class="fas fa-tags"></i>
                     <span>New Product</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
-                    <i class="fas fa-tools"></i>
+                    <i class="fas fa-percent"></i>
                     <span>Discount Product</span></a>
             </li>
             <li class="nav-item">
@@ -177,7 +177,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-tools"></i>
+                                        <i class="fas fa-tags"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +193,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-tools"></i>
+                                            <i class="fas fa-percent"></i>
                                         </div>
                                     </div>
                                 </div>
