@@ -30,6 +30,35 @@ include "../conection_database.php";
             header("location:../login.php");
         }
     ?>
+    <?php 
+		if(isset($_GET['alert'])){
+			if($_GET['alert']=='gagal_ekstensi'){
+				?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
+					Ekstensi Tidak Diperbolehkan
+				</div>								
+				<?php
+			}elseif($_GET['alert']=="gagal_ukuran"){
+				?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+					Ukuran File terlalu Besar
+				</div> 								
+				<?php
+			}elseif($_GET['alert']=="berhasil"){
+				?>
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Success</h4>
+					Berhasil Disimpan
+				</div> 								
+				<?php
+			}
+		}
+		?>
 </head>
 
 <body id="page-top">
@@ -177,8 +206,13 @@ include "../conection_database.php";
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                New Product</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                                                New Product
+                                            </div>
+                                            <?php 
+                                                $sql_total_data_product = mysqli_query($con,"SELECT id_produk FROM produk");
+                                                $total_data_product = mysqli_num_rows($sql_total_data_product);
+                                            ?>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $total_data_product; ?></div>
                                         </div>
                                         <div class="col-auto">
                                         <i class="fas fa-tags"></i>
@@ -194,7 +228,7 @@ include "../conection_database.php";
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                                 Discount Product</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $total_data_product; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-percent"></i>
@@ -210,7 +244,7 @@ include "../conection_database.php";
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                                 Old Product</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">20</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $total_data_product; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-tools"></i>
@@ -248,7 +282,7 @@ include "../conection_database.php";
                         <td><img src="gambar/<?php echo $x['foto_produk']; ?>" class="img-thumbnail" width="100px" alt=""></td>
                             <td><?php echo $x['kode_produk']; ?></td>
                             <td><?php echo $x['nama_produk']; ?></td>
-                            <td><?php echo $x['harga_produk']; ?></td>
+                            <td><?php echo "Rp. ".number_format($x['harga_produk']); ?></td>
                             <td><?php echo $x['stock_produk']; ?></td>
                             <td><?php echo $x['detail_produk']; ?></td>
                         </tr>
@@ -274,7 +308,7 @@ include "../conection_database.php";
                     </thead>
                     <tbody>
                         <?php 
-                            $sql = "SELECT * FROM produk";
+                            $sql = "SELECT * FROM produk WHERE harga_produk < 30000 LIMIT 5";
                             $no = 1;
                             $data = mysqli_query($con, $sql);
                             while($x = mysqli_fetch_array($data)){
@@ -284,7 +318,7 @@ include "../conection_database.php";
                             <td><img src="gambar/<?php echo $x['foto_produk']; ?>" class="img-thumbnail" width="100px" alt=""></td>
                             <td><?php echo $x['kode_produk']; ?></td>
                             <td><?php echo $x['nama_produk']; ?></td>
-                            <td><?php echo $x['harga_produk']; ?></td>
+                            <td><?php echo "Rp. ".number_format($x['harga_produk']); ?></td>
                             <td><?php echo $x['stock_produk']; ?></td>
                             <td><?php echo $x['detail_produk']; ?></td>
                         </tr>
@@ -309,64 +343,24 @@ include "../conection_database.php";
                         </tr>
                     </thead>
                     <tbody>
+                    <?php 
+                            $sql = "SELECT * FROM produk LIMIT 5";
+                            $no = 1;
+                            $data = mysqli_query($con, $sql);
+                            while($x = mysqli_fetch_array($data)){
+                        ?>
                         <tr>
-                        <th scope="row">1</th>
-                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <!-- <td>
-                            <a href="" class="bg-success p-2 rounded text-white">
-                                <i class="far fa-edit text-white"></i>
-                                Edit
-                            </a>
-                            <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                <i class="far fa-trash-alt text-white"></i>
-                                Delete
-                            </a>
-                        </td> -->
+                            <th scope="row"><?php echo $no++; ?></th>
+                            <td><img src="gambar/<?php echo $x['foto_produk']; ?>" class="img-thumbnail" width="100px" alt=""></td>
+                            <td><?php echo $x['kode_produk']; ?></td>
+                            <td><?php echo $x['nama_produk']; ?></td>
+                            <td><?php echo "Rp. ".number_format($x['harga_produk']); ?></td>
+                            <td><?php echo $x['stock_produk']; ?></td>
+                            <td><?php echo $x['detail_produk']; ?></td>
                         </tr>
-                        <tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <!-- <td>
-                            <a href="" class="bg-success p-2 rounded text-white">
-                                <i class="far fa-edit text-white"></i>
-                                Edit
-                            </a>
-                            <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                <i class="far fa-trash-alt text-white"></i>
-                                Delete
-                            </a>
-                        </td> -->
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        <!-- <td>
-                            <a href="" class="bg-success p-2 rounded text-white">
-                                <i class="far fa-edit text-white"></i>
-                                Edit
-                            </a>
-                            <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                <i class="far fa-trash-alt text-white"></i>
-                                Delete
-                            </a>
-                        </td> -->
-                        </tr>
+                        <?php 
+                            }
+                        ?>
                     </tbody>
                 </table>
 
