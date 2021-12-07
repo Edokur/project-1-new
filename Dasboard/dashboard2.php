@@ -67,7 +67,7 @@ include "../conection_database.php";
             </div>
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="new_product.php">
                     <i class="fas fa-tags"></i>
                     <span>New Product</span></a>
             </li>
