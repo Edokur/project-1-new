@@ -229,6 +229,7 @@
                                 <th scope="col">Harga Produk</th>
                                 <th scope="col">Stock Produk</th>
                                 <th scope="col">Detail Produk</th>
+                                <th scope="col">Action</th>
                                 </tr>
                         </thead>
                         <tbody>
@@ -256,6 +257,10 @@
                                 <td><?php echo "Rp. ".number_format($x['harga_produk']); ?></td>
                                 <td><?php echo $x['stock_produk']; ?></td>
                                 <td><?php echo $x['detail_produk']; ?></td>
+                                <td>
+                                        <a href="update_produk.php?id_produk=<?php echo $x['id_produk']; ?>">EDIT</a>
+					<a href="hapus_produk.php?id_produk=<?php echo $x['id_produk']; ?>">HAPUS</a>
+                                </td>
                                 </tr>
                                 <?php 
                                 }
