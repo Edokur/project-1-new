@@ -27,6 +27,36 @@
                 }
         ?>
 
+<?php 
+		if(isset($_GET['alert'])){
+			if($_GET['alert']=='gagal_ekstensi'){
+				?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
+					Ekstensi Tidak Diperbolehkan
+				</div>								
+				<?php
+			}elseif($_GET['alert']=="gagal_ukuran"){
+				?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+					Ukuran File terlalu Besar
+				</div> 								
+				<?php
+			}elseif($_GET['alert']=="berhasil"){
+				?>
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Success</h4>
+					Berhasil Disimpan
+				</div> 								
+				<?php
+			}
+		}
+		?>
+
         </head>
 
         <body id="page-top">
@@ -105,11 +135,10 @@
                         </button>
 
                         <!-- Topbar Search -->
-                        <form
-                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        
+                        <form action="new_product.php" method="GET" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                                 <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                        aria-label="Search" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."aria-label="Search" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                         <button class="btn btn-primary" type="button">
                                         <i class="fas fa-search fa-sm"></i>
@@ -219,6 +248,7 @@
                                 </div>
                         </div>
                         
+                        
                         <table class="table border bg-white text-center">
                         <thead>
                                 <tr>
@@ -239,15 +269,22 @@
                                 $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
                                 $previous = $halaman - 1;
                                 $next = $halaman + 1;
-                                                        
-                                $data = mysqli_query($con,"SELECT * FROM produk");
+                                $data = mysqli_query($con, "SELECT * FROM produk");
                                 $jumlah_data = mysqli_num_rows($data);
                                 $total_halaman = ceil($jumlah_data / $batas);
+
+                                if(isset($_GET['cari'])){
+                                        $cari = $_GET['cari'];
+                                        $data = mysqli_query($con, "SELECT * FROM produk WHERE nama_produk like '%".$cari."%'");				
+                                }else{
+                                        $data = mysqli_query($con, "SELECT * FROM produk");		
+                                }
 
                                 $sql = "SELECT * FROM produk LIMIT $halaman_awal, $batas";
                                 $no = $halaman_awal+1;
                                 $data = mysqli_query($con, $sql);
                                 while($x = mysqli_fetch_array($data)){
+                                        
                                 ?>
                                 <tr>
                                 <th scope="row"><?php echo $no++; ?></th>
