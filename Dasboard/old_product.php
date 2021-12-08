@@ -67,12 +67,12 @@
                         <i class="fas fa-tags"></i>
                         <span>New Product</span></a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item ">
                         <a class="nav-link" href="discount_product.php">
                         <i class="fas fa-percent"></i>
                         <span>Discount Product</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                         <a class="nav-link" href="">
                         <i class="fas fa-tools"></i>
                         <span>Old Product</span></a>
