@@ -101,12 +101,12 @@ include "../conection_database.php";
                     <span>New Product</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="discount_product.php">
                     <i class="fas fa-percent"></i>
                     <span>Discount Product</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="old_product.php">
                     <i class="fas fa-tools"></i>
                     <span>Old Product</span></a>
             </li>
