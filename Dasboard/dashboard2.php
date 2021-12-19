@@ -363,6 +363,7 @@ include "../conection_database.php";
                             <td><img src="gambar/<?php echo $x['foto_produk']; ?>" class="img-thumbnail" width="100px" alt=""></td>
                             <td><?php echo $x['kode_produk']; ?></td>
                             <td><?php echo $x['nama_produk']; ?></td>
+                            <td><?php echo "Rp. ".number_format($x['harga_awal']); ?></td>
                             <td><?php echo "Rp. ".number_format($x['harga_produk']); ?></td>
                             <td><?php echo $x['stock_produk']; ?></td>
                             <td><?php echo $x['detail_produk']; ?></td>
