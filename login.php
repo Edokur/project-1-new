@@ -152,7 +152,7 @@
                 </div>
                 </div>
                 <div class="d-flex justify-content-end" style="margin-top: 0.75rem;">
-                <a href="#" class="forgot-password fst-italic">Forgot Password?</a>
+                <a href="forgot_pass_one.php" class="forgot-password fst-italic">Forgot Password?</a>
                 </div>
                 <input type="submit" value="Login" class="btn btn-fill text-white d-block w-100" name="submit">
             </form>
