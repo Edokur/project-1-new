@@ -26,6 +26,37 @@
                 header("location:../login.php");
                 }
         ?>
+
+<?php 
+		if(isset($_GET['alert'])){
+			if($_GET['alert']=='gagal_ekstensi'){
+				?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-warning"></i> Peringatan !</h4>
+					Ekstensi Tidak Diperbolehkan
+				</div>								
+				<?php
+			}elseif($_GET['alert']=="gagal_ukuran"){
+				?>
+				<div class="alert alert-warning alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Peringatan !</h4>
+					Ukuran File terlalu Besar
+				</div> 								
+				<?php
+			}elseif($_GET['alert']=="berhasil"){
+				?>
+				<div class="alert alert-success alert-dismissible">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+					<h4><i class="icon fa fa-check"></i> Success</h4>
+					Berhasil Disimpan
+				</div> 								
+				<?php
+			}
+		}
+		?>
+
         </head>
 
         <body id="page-top">
@@ -62,13 +93,13 @@
                         Katalog Product
                 </div>
 
-                <li class="nav-item ">
+                <li class="nav-item active">
                         <a class="nav-link" href="new_product.php">
                         <i class="fas fa-tags"></i>
                         <span>New Product</span></a>
                 </li>
-                <li class="nav-item active">
-                        <a class="nav-link" href="">
+                <li class="nav-item">
+                        <a class="nav-link" href="discount_product.php">
                         <i class="fas fa-percent"></i>
                         <span>Discount Product</span></a>
                 </li>
@@ -104,11 +135,10 @@
                         </button>
 
                         <!-- Topbar Search -->
-                        <form
-                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        
+                        <form action="new_product.php" method="GET" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                                 <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                        aria-label="Search" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."aria-label="Search" aria-describedby="basic-addon2">
                                 <div class="input-group-append">
                                         <button class="btn btn-primary" type="button">
                                         <i class="fas fa-search fa-sm"></i>
@@ -166,39 +196,43 @@
                                 Form Data
                         </h3>
                         <div class="col bg-white p-5 rounded">
-                        <form action="" method="">
-
-                                <div class="mb-3">
-                                        <label for="formFile" class="form-label">Gambar Produk</label>
-                                        <input class="form-control text-center" type="file" id="formFile">
-                                </div>
+                        <form action="new_proses_discount.php" method="POST" enctype="multipart/form-data">
                                 <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Kode Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukan Kode Produk">
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="kode_Produk" placeholder="Masukan Kode Produk">
                                 </div>
                                 <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Nama Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukan Nama Produk">
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nama_Produk" placeholder="Masukan Nama Produk">
                                 </div>
                                 <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Kode Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukan Harga Produk">
+                                        <label for="exampleFormControlInput1" class="form-label">Harga Produk</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="harga_Produk" placeholder="Masukan Harga Produk">
+                                </div>
+                                <div class="mb-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Diskon Produk</label>
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="diskon_Produk" placeholder="Masukan Diskon Produk">
+                                        <p style="color: red">Maksimal Diskon 10%</p>
                                 </div>
                                 <div class="mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Stock Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Masukan Stock Produk">
+                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="stock_Produk" placeholder="Masukan Stock Produk">
                                 </div>
-                                <div class="form-floating">
-                                <label for="floatingTextarea2">Detail Produk</label>
-                                <textarea class="form-control" placeholder="Masukan Detail Produk" id="floatingTextarea2" style="height: 200px"></textarea>
+                                <div class="form-floating mb-3">
+                                        <label for="floatingTextarea2">Detail Produk</label>
+                                        <textarea class="form-control" placeholder="Masukan Detail Produk" name="detail_Produk" id="floatingTextarea2" style="height: 200px"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                        <label for="formFile" class="form-label">Gambar Produk</label>
+                                        <input class="form-control text-center" type="file" id="formFile" name="gambar_Produk" >
+                                        <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
                                 </div>
                                 <div class="row">
-
-                                        <div class="col-6 text-center">
-                                                <button type="button" class="btn btn-primary my-3 text-center px-5">Kirim Data</button>
-                                        </div>
                                         <div class="col-6 text-center">
                                                 <button type="Reset" class="btn btn-danger my-3 text-center px-5">Reset Data</button>
+                                        </div>
+                                        <div class="col-6 text-center">
+                                                <input type="submit" value="Kirim data" class="btn btn-primary my-3 text-center px-5">
                                         </div>
                                 </div>
                         </form>
@@ -219,6 +253,7 @@
                                 </div>
                         </div>
                         
+                        
                         <table class="table border bg-white text-center">
                         <thead>
                                 <tr>
@@ -227,80 +262,72 @@
                                 <th scope="col">Kode Produk</th>
                                 <th scope="col">Nama Produk</th>
                                 <th scope="col">Harga Produk</th>
+                                <th scope="col">Diskon Produk</th>
                                 <th scope="col">Stock Produk</th>
                                 <th scope="col">Detail Produk</th>
+                                <th scope="col">Action</th>
                                 </tr>
                         </thead>
                         <tbody>
+                                <?php 
+                                $batas = 10;
+                                $halaman = isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
+                                $halaman_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;	
+                                $previous = $halaman - 1;
+                                $next = $halaman + 1;
+                                $data = mysqli_query($con, "SELECT * FROM discount_produk");
+                                $jumlah_data = mysqli_num_rows($data);
+                                $total_halaman = ceil($jumlah_data / $batas);
+
+                                if(isset($_GET['cari'])){
+                                        $cari = $_GET['cari'];
+                                        $data = mysqli_query($con, "SELECT * FROM discount_produk WHERE nama_produk like '%".$cari."%'");				
+                                }else{
+                                        $data = mysqli_query($con, "SELECT * FROM discount_produk");		
+                                }
+
+                                $sql = "SELECT * FROM discount_produk LIMIT $halaman_awal, $batas";
+                                $no = $halaman_awal+1;
+                                $data = mysqli_query($con, $sql);
+                                while($x = mysqli_fetch_array($data)){
+                                        
+                                ?>
                                 <tr>
-                                <th scope="row">1</th>
-                                <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <!-- <td>
-                                <a href="" class="bg-success p-2 rounded text-white">
-                                        <i class="far fa-edit text-white"></i>
-                                        Edit
-                                </a>
-                                <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                        <i class="far fa-trash-alt text-white"></i>
-                                        Delete
-                                </a>
-                                </td> -->
+                                <th scope="row"><?php echo $no++; ?></th>
+                                <td><img src="gambar_diskon/<?php echo $x['foto_produk']; ?>" class="img-thumbnail" width="100px" alt=""></td>
+                                <td><?php echo $x['kode_produk']; ?></td>
+                                <td><?php echo $x['nama_produk']; ?></td>
+                                <td><?php echo "Rp. ".number_format($x['harga_produk']); ?></td>
+                                <td><?php echo $x['diskon_produk']; ?></td>
+                                <td><?php echo $x['stock_produk']; ?></td>
+                                <td><?php echo $x['detail_produk']; ?></td>
+                                <td>
+                                        <a href="update_produk_discount.php?id_produk=<?php echo $x['id_produk']; ?>">EDIT</a>
+					<a href="hapus_produk_discount.php?id_produk=<?php echo $x['id_produk']; ?>">HAPUS</a>
+                                </td>
                                 </tr>
-                                <tr>
-                                <tr>
-                                <th scope="row">2</th>
-                                <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <!-- <td>
-                                <a href="" class="bg-success p-2 rounded text-white">
-                                        <i class="far fa-edit text-white"></i>
-                                        Edit
-                                </a>
-                                <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                        <i class="far fa-trash-alt text-white"></i>
-                                        Delete
-                                </a>
-                                </td> -->
-                                </tr>
-                                <tr>
-                                <th scope="row">3</th>
-                                <td><img src="../img/diesel.jpg" class="img-thumbnail" width="100px" alt=""></td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <td>@mdo</td>
-                                <!-- <td>
-                                <a href="" class="bg-success p-2 rounded text-white">
-                                        <i class="far fa-edit text-white"></i>
-                                        Edit
-                                </a>
-                                <a href="" class="bg-danger p-2 rounded ml-3 text-white">
-                                        <i class="far fa-trash-alt text-white"></i>
-                                        Delete
-                                </a>
-                                </td> -->
-                                </tr>
+                                <?php 
+                                }
+                                ?>
                         </tbody>
                         </table>`
-                                <nav aria-label="Page navigation example">
-                                        <ul class="pagination justify-content-center">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                        </ul>
-                                </nav>
+                        <nav>
+                                <ul class="pagination justify-content-center">
+                                        <li class="page-item">
+                                                <a class="page-link" <?php if($halaman > 1){ echo "href='?halaman=$Previous'"; } ?>>Previous</a>
+                                        </li>
+                                        <?php 
+                                        for($x=1;$x<=$total_halaman;$x++){
+                                                ?> 
+                                                <li class="page-item"><a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a></li>
+                                                <?php
+                                        }
+                                        ?>				
+                                        <li class="page-item">
+                                                <a  class="page-link" <?php if($halaman < $total_halaman) { echo "href='?halaman=$next'"; } ?>>Next</a>
+                                        </li>
+                                </ul>
+		        </nav>
                         </div>
                         <!-- /.container-fluid -->
 

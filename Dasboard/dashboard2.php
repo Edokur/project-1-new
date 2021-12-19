@@ -227,8 +227,13 @@ include "../conection_database.php";
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Discount Product</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $total_data_product; ?></div>
+                                                Discount Product
+                                            </div>
+                                            <?php 
+                                            $sql_total_data_product_discount = mysqli_query($con,"SELECT id_produk FROM discount_produk");
+                                            $total_data_product_discount = mysqli_num_rows($sql_total_data_product_discount);
+                                            ?>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $total_data_product_discount; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-percent"></i>
@@ -302,23 +307,25 @@ include "../conection_database.php";
                         <th scope="col">Kode Produk</th>
                         <th scope="col">Nama Produk</th>
                         <th scope="col">Harga Produk</th>
+                        <th scope="col">Diskon Produk</th>
                         <th scope="col">Stock Produk</th>
                         <th scope="col">Detail Produk</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
-                            $sql = "SELECT * FROM produk WHERE harga_produk < 30000 LIMIT 5";
+                            $sql = "SELECT * FROM discount_produk LIMIT 5";
                             $no = 1;
                             $data = mysqli_query($con, $sql);
                             while($x = mysqli_fetch_array($data)){
                         ?>
                         <tr>
                             <th scope="row"><?php echo $no++; ?></th>
-                            <td><img src="gambar/<?php echo $x['foto_produk']; ?>" class="img-thumbnail" width="100px" alt=""></td>
+                            <td><img src="gambar_diskon/<?php echo $x['foto_produk']; ?>" class="img-thumbnail" width="100px" alt=""></td>
                             <td><?php echo $x['kode_produk']; ?></td>
                             <td><?php echo $x['nama_produk']; ?></td>
                             <td><?php echo "Rp. ".number_format($x['harga_produk']); ?></td>
+                            <td><?php echo $x['diskon_produk']." %"; ?></td>
                             <td><?php echo $x['stock_produk']; ?></td>
                             <td><?php echo $x['detail_produk']; ?></td>
                         </tr>
