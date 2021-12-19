@@ -93,12 +93,12 @@
                         Katalog Product
                 </div>
 
-                <li class="nav-item active">
+                <li class="nav-item ">
                         <a class="nav-link" href="new_product.php">
                         <i class="fas fa-tags"></i>
                         <span>New Product</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                         <a class="nav-link" href="discount_product.php">
                         <i class="fas fa-percent"></i>
                         <span>Discount Product</span></a>
@@ -261,7 +261,8 @@
                                 <th scope="col">Foto Produk</th>
                                 <th scope="col">Kode Produk</th>
                                 <th scope="col">Nama Produk</th>
-                                <th scope="col">Harga Produk</th>
+                                <th scope="col">Harga Sebelum Diskon</th>
+                                <th scope="col">Harga Sesudah Diskon</th>
                                 <th scope="col">Diskon Produk</th>
                                 <th scope="col">Stock Produk</th>
                                 <th scope="col">Detail Produk</th>
@@ -297,6 +298,7 @@
                                 <td><img src="gambar_diskon/<?php echo $x['foto_produk']; ?>" class="img-thumbnail" width="100px" alt=""></td>
                                 <td><?php echo $x['kode_produk']; ?></td>
                                 <td><?php echo $x['nama_produk']; ?></td>
+                                <td>Rp. 45.000</td>
                                 <td><?php echo "Rp. ".number_format($x['harga_produk']); ?></td>
                                 <td><?php echo $x['diskon_produk']; ?></td>
                                 <td><?php echo $x['stock_produk']; ?></td>

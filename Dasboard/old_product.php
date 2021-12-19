@@ -93,7 +93,7 @@
                         Katalog Product
                 </div>
 
-                <li class="nav-item active">
+                <li class="nav-item ">
                         <a class="nav-link" href="new_product.php">
                         <i class="fas fa-tags"></i>
                         <span>New Product</span></a>
@@ -103,7 +103,7 @@
                         <i class="fas fa-percent"></i>
                         <span>Discount Product</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                         <a class="nav-link" href="old_product.php">
                         <i class="fas fa-tools"></i>
                         <span>Old Product</span></a>
@@ -191,59 +191,13 @@
                         <!-- Begin Page Content -->
                         <div class="container-fluid">
 
-                        <!-- Form Inputan -->
-                        <h3 class="my-3">
-                                Form Data
-                        </h3>
-                        <div class="col bg-white p-5 rounded">
-                        <form action="new_proses.php" method="POST" enctype="multipart/form-data">
-                                <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Kode Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="kode_Produk" placeholder="Masukan Kode Produk">
-                                </div>
-                                <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Nama Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nama_Produk" placeholder="Masukan Nama Produk">
-                                </div>
-                                <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Harga Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="harga_Produk" placeholder="Masukan Harga Produk">
-                                </div>
-                                <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Stock Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="stock_Produk" placeholder="Masukan Stock Produk">
-                                </div>
-                                <div class="form-floating mb-3">
-                                        <label for="floatingTextarea2">Detail Produk</label>
-                                        <textarea class="form-control" placeholder="Masukan Detail Produk" name="detail_Produk" id="floatingTextarea2" style="height: 200px"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                        <label for="formFile" class="form-label">Gambar Produk</label>
-                                        <input class="form-control text-center" type="file" id="formFile" name="gambar_Produk" >
-                                        <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
-                                </div>
-                                <div class="row">
-                                        <div class="col-6 text-center">
-                                                <button type="Reset" class="btn btn-danger my-3 text-center px-5">Reset Data</button>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                                <input type="submit" value="Kirim data" class="btn btn-primary my-3 text-center px-5">
-                                        </div>
-                                </div>
-                        </form>
-                        </div>
                         <!-- Page Heading -->
                         <div class="col mt-5">
                                 <div class="row">
                                         <div class="col-6">
                                                 <h3 class="my-3">
-                                                        New Product
+                                                        Old Product
                                                 </h3>
-                                        </div>
-                                        <div class="col-6 text-right">
-                                                <a href="">
-                                                        <button type="button" class="btn btn-primary my-3 text-right"><i class="fas fa-plus pr-2"></i>  Tambah Data</button>
-                                                </a>
                                         </div>
                                 </div>
                         </div>
