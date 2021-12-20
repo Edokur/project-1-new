@@ -88,7 +88,7 @@
 
   </head>
   <body>
-  <section class="h-100 w-100" style="box-sizing: border-box; background-color: #232130">
+  <section class="h-100 w-100" style="box-sizing: border-box; background-color:#252332">
                 <div class="content-3-6 d-flex flex-column align-items-center h-100 flex-lg-row"
         style="font-family: 'Poppins', sans-serif;">
         <div class="position-relative d-none d-lg-block h-100 width-left">
@@ -100,7 +100,7 @@
             <div class="right mx-lg-0 mx-auto">
             <div class="align-items-center justify-content-center d-lg-none d-flex">
                 <img class="img-fluid"
-                src="http://api.elements.buildwithangga.com/storage/files/2/assets/Empty%20State/EmptyState3/Empty-3-6.png"
+                src="img/welcome.png"
                 alt="">
             </div>
             <h3 class="title-text">Log In to continue</h3>
@@ -156,9 +156,7 @@
                 </div>
                 <input type="submit" value="Login" class="btn btn-fill text-white d-block w-100" name="submit">
             </form>
-            <p class="text-center bottom-caption">Don't have an account yet?
-                <span class="green-bottom-caption"><a href="registration.php" >Register Here</a></span>
-            </p>
+            
             </div>
         </div>
 

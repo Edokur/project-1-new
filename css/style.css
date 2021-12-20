@@ -116,7 +116,7 @@
         }
 
         .content-3-6 .btn-fill:hover {
-            background-image: linear-gradient(#2EC49C, #2EC49C);
+            background-color: linear-gradient(#2EC49C, #2EC49C);
             transition: 0.5s;
         }
 
