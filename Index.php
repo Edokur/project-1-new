@@ -252,8 +252,8 @@
                                 </div>
                                 <div class="card-body mt-3">
                                         <h5 class="card-title">Diesel ADI S1125</h5>
-                                        <!-- <p class="card-text text-secondary">Kualitas terjamin, tenaga maximal Mesin penggerak serbaguna untuk segala kebutuhan anda!
-                                        </p> -->
+                                        <p class="card-text text-secondary">Kualitas terjamin, tenaga maximal Mesin penggerak serbaguna untuk segala kebutuhan anda!
+                                        </p>
                                         <p class="card-text fs-5 text-danger">
                                                 Rp. 450.000
                                         </p>
@@ -281,8 +281,8 @@
                                 </div>
                                 <div class="card-body mt-3">
                                         <h5 class="card-title">Diesel ADI S1125</h5>
-                                        <!-- <p class="card-text text-secondary">Kualitas terjamin, tenaga maximal Mesin penggerak serbaguna untuk segala kebutuhan anda!
-                                        </p> -->
+                                        <p class="card-text text-secondary">Kualitas terjamin, tenaga maximal Mesin penggerak serbaguna untuk segala kebutuhan anda!
+                                        </p>
                                         <p class="text-decoration-line-through card-text text-secondary fst-italic">
                                                 Rp. 470.000
                                         </p>
@@ -313,8 +313,8 @@
                                 </div>
                                 <div class="card-body mt-3">
                                         <h5 class="card-title">Diesel ADI S1125</h5>
-                                        <!-- <p class="card-text text-secondary">Kualitas terjamin, tenaga maximal Mesin penggerak serbaguna untuk segala kebutuhan anda!
-                                        </p> -->
+                                        <p class="card-text text-secondary">Kualitas terjamin, tenaga maximal Mesin penggerak serbaguna untuk segala kebutuhan anda!
+                                        </p>
                                         <p class="card-text fs-5 text-danger">
                                                 Rp. 450.000
                                         </p>
