@@ -166,31 +166,51 @@
         </section>
         <section class="h-100 w-100 bg-white my-5 px-3" >
                 <div class="container container-xxl mx-auto p-0 position-relative" style="font-family: 'Poppins', sans-serif">
-                        <form action="">
+                        <form action="" method="GET">
                                 <div class="input-group mb-3">
-                                <input type="text" class="form-control" placeholder="Seaching..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                                <input type="text" name="cari" class="form-control" placeholder="Seaching..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
                                 </div>
                         </form>
+                        <?php
+                                include "conection_database.php";
+                                if(isset($_GET['cari'])){
+                                $cari = $_GET['cari'];
+                                echo "<b>Hasil pencarian : ".$cari."</b>";
+                                }
+                        ?>
                         <h2 class="text-center border-bottom p-3">
                         Discount Product
                 </h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4 my-3 px-3">
                         <div class="col">
+                                <?php
+                                        if(isset($_GET['cari'])){
+                                        $cari = $_GET['cari'];
+                                        $sql="SELECT * FROM discount_produk WHERE nama_produk LIKE'%".$cari."%'";
+                                        $tampil = mysqli_query($con,$sql);
+                                        }else{
+                                        $sql="SELECT * FROM discount_produk";
+                                        $tampil = mysqli_query($con, $sql);
+                                        }
+                                        $no = 1;
+                                        while($r = mysqli_fetch_array($tampil)){
+                                ?>
                                 <div class="card">
                                 <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-warning" >Discount</p>
+                                <?php $no++; ?>
                                 <div class="text-center p-3 border-bottom">
-                                        <img src="img/barang.jpg" width="200px" class=" img-thumbnail border-0" alt="...">
+                                        <img src="Dasboard/gambar_diskon/<?php echo $r['foto_produk']; ?>" width="200px" class=" img-thumbnail border-0" alt="...">
                                 </div>
                                 <div class="card-body mt-3">
-                                        <h5 class="card-title">Diesel ADI S1125</h5>
-                                        <!-- <p class="card-text text-secondary">Kualitas terjamin, tenaga maximal Mesin penggerak serbaguna untuk segala kebutuhan anda!
-                                        </p> -->
+                                        <h5 class="card-title"><?php echo $r['nama_produk']; ?></h5>
+                                        <p class="card-text text-secondary"><?php echo $r['detail_produk']; ?>
+                                        </p>
                                         <p class="text-decoration-line-through card-text text-secondary fst-italic">
-                                                Rp. 470.000
+                                        <?php echo "Rp. ".number_format($r['harga_awal']); ?>
                                         </p>
                                         <p class="card-text fs-5  text-danger">
-                                                Rp. 450.000
+                                        <?php echo "Rp. ".number_format($r['harga_produk']); ?>
                                         </p>
                                         <a href="https://api.whatsapp.com/send?phone=+6282135649141" target="blank" class="nav-link px-5  rounded mt-5 text-center text-white" style="background-color:rgb(91, 203, 173, 1);">
                                                 Beli Sekarang
@@ -198,6 +218,7 @@
                                 </div>
                                 </div>
                         </div>
+                        <?php } ?>
                 </div>
                 </div>
         </section>
