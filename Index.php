@@ -247,7 +247,7 @@
                         <div class="col">
                         <?php 
                                 include "conection_database.php";
-                                $sql = "SELECT * FROM produk ORDER BY id_produk DESC LIMIT 6";
+                                $sql = "SELECT * FROM produk LIMIT 6";
                                 $no = 1;
                                 $data = mysqli_query($con, $sql);
                                 while($x = mysqli_fetch_array($data)){
@@ -324,7 +324,7 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4 my-3 px-3">
                         <div class="col">
                         <?php 
-                                $sql = "SELECT * FROM produk LIMIT 6";
+                                $sql = "SELECT * FROM produk ORDER BY id_produk DESC LIMIT 6";
                                 $no = 1;
                                 $data = mysqli_query($con, $sql);
                                 while($x = mysqli_fetch_array($data)){
