@@ -15,6 +15,7 @@ $filename = $_FILES['gambar_Produk']['name'];
 $ukuran = $_FILES['gambar_Produk']['size'];
 $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
+$hargaAwalProduk = $hargaProduk;
 if ($diskonProduk > 10) {
 	header("location:dashboard2.php?alert=gagal_ukuran");
 } else{
@@ -25,7 +26,7 @@ if ($diskonProduk > 10) {
 	}else{
 		if($ukuran < 10000000){		
 			$xx = $rand.'_'.$filename;
-			$sql = "INSERT INTO discount_produk (kode_produk, nama_produk, harga_produk, diskon_produk, stock_produk, detail_produk, foto_produk) VALUES ('$kodeProduk','$namaProduk','$hargaProduk','$diskonProduk','$stockProduk','$detailProduk','$xx')";
+			$sql = "INSERT INTO discount_produk (kode_produk, nama_produk, harga_awal, harga_produk, diskon_produk, stock_produk, detail_produk, foto_produk) VALUES ('$kodeProduk','$namaProduk','$hargaAwalProduk','$hargaProduk','$diskonProduk','$stockProduk','$detailProduk','$xx')";
 			move_uploaded_file($lokasiFile, 'gambar_diskon/'.$rand.'_'.$filename);
 			mysqli_query($con, $sql);
 			header("location:dashboard2.php?alert=berhasil");

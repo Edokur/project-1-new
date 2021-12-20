@@ -136,14 +136,20 @@
 
                         <!-- Topbar Search -->
                         
-                        <form action="new_product.php" method="GET" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <form action="" method="GET" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                                 <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."aria-label="Search" aria-describedby="basic-addon2">
+                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."aria-label="Search" aria-describedby="basic-addon2" name="cari">
                                 <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
+                                        <button class="btn btn-primary" type="button" name="cari">
                                         <i class="fas fa-search fa-sm"></i>
                                         </button>
                                 </div>
+                                <?php
+                                        if(isset($_GET['cari'])){
+                                        $cari = $_GET['cari'];
+                                        echo "<b>Hasil pencarian : ".$cari."</b>";
+                                        }
+                                ?>
                                 </div>
                         </form>
 
@@ -242,7 +248,7 @@
                                         </div>
                                         <div class="col-6 text-right">
                                                 <a href="">
-                                                        <button type="button" class="btn btn-primary my-3 text-right"><i class="fas fa-plus pr-2"></i>  Tambah Data</button>
+                                                        <button type="button" class="btn btn-primary my-3 text-right"><i class="fas fa-plus pr-2"></i>Tambah Data</button>
                                                 </a>
                                         </div>
                                 </div>
@@ -280,7 +286,7 @@
                                         $data = mysqli_query($con, "SELECT * FROM produk");		
                                 }
 
-                                $sql = "SELECT * FROM produk LIMIT $halaman_awal, $batas";
+                                $sql = "SELECT * FROM produk ORDER BY id_produk DESC LIMIT $halaman_awal, $batas";
                                 $no = $halaman_awal+1;
                                 $data = mysqli_query($con, $sql);
                                 while($x = mysqli_fetch_array($data)){
