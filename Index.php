@@ -244,18 +244,26 @@
                         New Product
                 </h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4 my-3 px-3">
+                <?php 
+                include "conection_database.php";
+                $sql = "SELECT * FROM produk ORDER BY id_produk DESC LIMIT 6";
+                $no = 1;
+                $data = mysqli_query($con, $sql);
+                while($x = mysqli_fetch_array($data)){
+                ?>
+                <?php $no++; ?>
                         <div class="col">
                                 <div class="card">
                                 <p class="mt-4 px-5 p-2 rounded position-absolute text-white " style="background-color: rgba(91, 203, 173, 1);">New </p>
                                 <div class="text-center p-3 border-bottom">
-                                        <img src="img/barang.jpg" width="200px" class=" img-thumbnail border-0" alt="...">
+                                        <img src="Dasboard/gambar/<?php echo $x['foto_produk']; ?>" width="200px" class=" img-thumbnail border-0" alt="...">
                                 </div>
                                 <div class="card-body mt-3">
-                                        <h5 class="card-title">Diesel ADI S1125</h5>
-                                        <p class="card-text text-secondary">Kualitas terjamin, tenaga maximal Mesin penggerak serbaguna untuk segala kebutuhan anda!
+                                        <h5 class="card-title"><?php echo $x['nama_produk']; ?></h5>
+                                        <p class="card-text text-secondary"><?php echo $x['detail_produk']; ?>
                                         </p>
                                         <p class="card-text fs-5 text-danger">
-                                                Rp. 450.000
+                                        <?php echo "Rp. ".number_format($x['harga_produk']); ?>
                                         </p>
                                         <a href="https://api.whatsapp.com/send?phone=+6282135649141" target="blank" class="nav-link px-5  rounded mt-5 text-center text-white" style="background-color:rgb(91, 203, 173, 1);">
                                                 Beli Sekarang
@@ -263,6 +271,7 @@
                                 </div>
                                 </div>
                         </div>
+                        <?php } ?>
                 </div>
                 <a href="Home-new_product.php" class="nav-link">
                         <p class="text-center my-5"> Lihat Selengkapnya</p>
@@ -273,21 +282,28 @@
                         Discount Product
                 </h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4 my-3 px-3">
+                <?php 
+                $sql = "SELECT * FROM discount_produk LIMIT 6";
+                $no = 1;
+                $data = mysqli_query($con, $sql);
+                while($x = mysqli_fetch_array($data)){
+                ?>
+                <?php $no++; ?>
                         <div class="col">
                                 <div class="card">
-                                <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-warning" >Discount</p>
+                                <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-warning" >Discount <?php echo $x['diskon_produk']; ?> %</p>
                                 <div class="text-center p-3 border-bottom">
-                                        <img src="img/barang.jpg" width="200px" class=" img-thumbnail border-0" alt="...">
+                                        <img src="Dasboard/gambar_diskon/<?php echo $x['foto_produk']; ?>" width="200px" class=" img-thumbnail border-0" alt="...">
                                 </div>
                                 <div class="card-body mt-3">
-                                        <h5 class="card-title">Diesel ADI S1125</h5>
-                                        <p class="card-text text-secondary">Kualitas terjamin, tenaga maximal Mesin penggerak serbaguna untuk segala kebutuhan anda!
+                                        <h5 class="card-title"><?php echo $x['nama_produk']; ?></h5>
+                                        <p class="card-text text-secondary"><?php echo $x['detail_produk']; ?>
                                         </p>
                                         <p class="text-decoration-line-through card-text text-secondary fst-italic">
-                                                Rp. 470.000
+                                        <?php echo "Rp. ".number_format($x['harga_awal']); ?>
                                         </p>
                                         <p class="card-text fs-5  text-danger">
-                                                Rp. 450.000
+                                        <?php echo "Rp. ".number_format($x['harga_produk']); ?>
                                         </p>
                                         <a href="https://api.whatsapp.com/send?phone=+6282135649141" target="blank" class="nav-link px-5  rounded mt-5 text-center text-white" style="background-color:rgb(91, 203, 173, 1);">
                                                 Beli Sekarang
@@ -295,6 +311,7 @@
                                 </div>
                                 </div>
                         </div>
+                        <?php } ?>
                 </div>
                 <a href="Home-discount_product.php" class="nav-link">
                         <p class="text-center my-5"> Lihat Selengkapnya</p>
@@ -305,25 +322,30 @@
                         Old Product
                 </h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4 my-3 px-3">
+                <?php 
+                        $sql = "SELECT * FROM produk LIMIT 6";
+                        $no = 1;
+                        $data = mysqli_query($con, $sql);
+                        while($x = mysqli_fetch_array($data)){
+                        ?>
+                        <?php $no++; ?>
                         <div class="col">
-                                <div class="card">
-                                <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-danger">Old </p>
-                                <div class="text-center p-3 border-bottom">
-                                        <img src="img/barang.jpg" width="200px" class=" img-thumbnail border-0" alt="...">
-                                </div>
-                                <div class="card-body mt-3">
-                                        <h5 class="card-title">Diesel ADI S1125</h5>
-                                        <p class="card-text text-secondary">Kualitas terjamin, tenaga maximal Mesin penggerak serbaguna untuk segala kebutuhan anda!
-                                        </p>
-                                        <p class="card-text fs-5 text-danger">
-                                                Rp. 450.000
-                                        </p>
-                                        <a href="https://api.whatsapp.com/send?phone=+6282135649141" target="blank" class="nav-link px-5  rounded mt-5 text-center text-white" style="background-color:rgb(91, 203, 173, 1);">
-                                                Beli Sekarang
-                                        </a>
-                                </div>
-                                </div>
+                        <div class="card">
+                        <p class="mt-4 px-5 p-2 rounded position-absolute text-white " style="background-color: rgba(91, 203, 173, 1);">New </p>
+                        <div class="text-center p-3 border-bottom">
+                        <img src="Dasboard/gambar/<?php echo $x['foto_produk']; ?>" width="200px" class=" img-thumbnail border-0" alt="...">
                         </div>
+                        <div class="card-body mt-3">
+                        <h5 class="card-title"><?php echo $x['nama_produk']; ?></h5>
+                        <p class="card-text text-secondary"><?php echo $x['detail_produk']; ?></p>
+                        <p class="card-text fs-5 text-danger"><?php echo "Rp. ".number_format($x['harga_produk']); ?></p>
+                        <a href="https://api.whatsapp.com/send?phone=+6282135649141" target="blank" class="nav-link px-5  rounded mt-5 text-center text-white" style="background-color:rgb(91, 203, 173, 1);">
+                                Beli Sekarang
+                        </a>
+                        </div>
+                        </div>
+                        </div>
+                        <?php } ?>
                 </div>
                 <a href="Home-old_product.php" class="nav-link">
                         <p class="text-center my-5"> Lihat Selengkapnya</p>

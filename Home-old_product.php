@@ -183,22 +183,22 @@
                         Old Product
                 </h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4 my-3 px-3">
-                        <div class="col">
                         <?php
                                 if(isset($_GET['cari'])){
                                 $cari = $_GET['cari'];
                                 $sql="SELECT * FROM produk WHERE nama_produk LIKE'%".$cari."%'";
                                 $tampil = mysqli_query($con,$sql);
                                 }else{
-                                $sql="SELECT * FROM produk ORDER BY id_produk DESC";
+                                $sql="SELECT * FROM produk";
                                 $tampil = mysqli_query($con, $sql);
                                 }
                                 $no = 1;
                                 while($r = mysqli_fetch_array($tampil)){
                         ?>
+                                <?php $no++; ?>
+                        <div class="col">
                                 <div class="card">
                                 <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-danger">Old </p>
-                                <?php $no++; ?>
                                 <div class="text-center p-3 border-bottom">
                                         <img src="Dasboard/gambar/<?php echo $r['foto_produk']; ?>" width="200px" class=" img-thumbnail border-0" alt="...">
                                 </div>

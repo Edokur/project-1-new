@@ -183,7 +183,6 @@
                         Discount Product
                 </h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4 my-3 px-3">
-                        <div class="col">
                                 <?php
                                         if(isset($_GET['cari'])){
                                         $cari = $_GET['cari'];
@@ -196,9 +195,10 @@
                                         $no = 1;
                                         while($r = mysqli_fetch_array($tampil)){
                                 ?>
-                                <div class="card">
-                                <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-warning" >Discount</p>
                                 <?php $no++; ?>
+                        <div class="col">
+                                <div class="card">
+                                <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-warning" >Discount <?php echo $r['diskon_produk']; ?> %</p>
                                 <div class="text-center p-3 border-bottom">
                                         <img src="Dasboard/gambar_diskon/<?php echo $r['foto_produk']; ?>" width="200px" class=" img-thumbnail border-0" alt="...">
                                 </div>
