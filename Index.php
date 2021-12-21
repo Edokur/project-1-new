@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Home</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/style.css">
         </head>
         <body>
         <section class="h-100 w-100" style="box-sizing: border-box; position: relative;background-color:#211F2D;">
@@ -51,10 +51,10 @@
                                                 </ul>
                                         </li>
                                         <li class="nav-item position-relative">
-                                                <a class="nav-link text-dark" href="#">About</a>
+                                                <a class="nav-link text-dark" href="#about">About</a>
                                         </li>
                                         <li class="nav-item position-relative">
-                                                <a class="nav-link text-dark" href="#">Contact</a>
+                                                <a class="nav-link text-dark" href="#contact">Contact</a>
                                         </li>
                                         <!-- <li class="nav-item position-relative">
                                         <a class="nav-link" data-bs-toggle="collapse" href="#collapse" role="button"aria-expanded="false" aria-controls="collapse">
@@ -119,10 +119,10 @@
                                 </ul>
                         </li>
                         <li class="nav-item position-relative">
-                                <a class="nav-link" href="#">About</a>
+                                <a class="nav-link" href="#about">About</a>
                         </li>
                         <li class="nav-item position-relative">
-                                <a class="nav-link" href="#">Contact</a>
+                                <a class="nav-link" href="#contact">Contact</a>
                         </li>
                         <!-- <li class="nav-item my-auto">
                                 <a class="nav-link" data-bs-toggle="collapse" href="#collapse" role="button"
@@ -291,7 +291,7 @@
                 <?php $no++; ?>
                         <div class="col">
                                 <div class="card">
-                                <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-warning" >Discount <?php echo $x['diskon_produk']; ?> %</p>
+                                <p class="mt-4 px-3 p-2 rounded position-absolute text-white bg-warning" >Discount <?php echo $x['diskon_produk']; ?>%</p>
                                 <div class="text-center p-3 border-bottom">
                                         <img src="Dasboard/gambar_diskon/<?php echo $x['foto_produk']; ?>" width="200px" class=" img-thumbnail border-0" alt="...">
                                 </div>
@@ -331,7 +331,7 @@
                         <?php $no++; ?>
                         <div class="col">
                         <div class="card">
-                        <p class="mt-4 px-5 p-2 rounded position-absolute text-white " style="background-color: rgba(91, 203, 173, 1);">New </p>
+                        <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-danger" >Old</p>
                         <div class="text-center p-3 border-bottom">
                         <img src="Dasboard/gambar/<?php echo $x['foto_produk']; ?>" width="200px" class=" img-thumbnail border-0" alt="...">
                         </div>
@@ -352,10 +352,10 @@
                 </a>
         </div>
         </section>
-        <section class="h-100 w-100" style="background-color:#252332;">
+        <section class="h-100 w-100 bg-white">
                 <div class="header-3-2 container-xxl mx-auto p-5 position-relative" style="font-family: 'Poppins', sans-serif">
                         <div class="container">
-                        <h2 class="text-center border-bottom p-3 text-white">
+                        <h2 class="text-center border-bottom p-3 text-dark">
                         Tata Cara Pembelian
                         </h2>
                         
@@ -427,7 +427,7 @@
                                         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                                         <div class="accordion-body bg-white">
                                                 <p class="text-caption text-dark">
-                                                        <strong>Melakukan - </strong> Tahap Kelima setelah pembeli mengisi beberapa informasi yang diperlukan adalah melakukan transaksi, pada tahap ini pembeli diminta untuk melakukan transaksi uang dimana pembeli harus mengirim uang kepada penjual melalui bank yang telah disediakan. 
+                                                        <strong>Melakukan Transaksi - </strong> Tahap Kelima setelah pembeli mengisi beberapa informasi yang diperlukan adalah melakukan transaksi, pada tahap ini pembeli diminta untuk melakukan transaksi uang dimana pembeli harus mengirim uang kepada penjual melalui bank yang telah disediakan. 
                                                 </p>
                                         </div>
                                         </div>
@@ -435,9 +435,69 @@
                         </div>
                 </div>
         </section>
-        <section class="h-100 w-100 bg-white my-3 px-3" >
-                <div class="container container-xxl mx-auto p-0 position-relative" style="font-family: 'Poppins', sans-serif">
-                        <h1>ada</h1>
+        <section class="h-100 w-100 mt-3 px-3 " style="box-sizing: border-box; position: relative;background-color:#211F2D;">
+                <div class="container content-2-2 container-xxl mx-auto p-0  position-relative" style="font-family: 'Poppins', sans-serif">
+                <div class="text-center title-text " id="about">
+                        <h1 class="text-title text-white">About</h1>
+                        <p class="text-caption text-secondary" style="margin-left: 3rem; margin-right: 3rem">
+                                Az Zahra Store merupakan sebuah toko penjualan alat - alat teknik seperti diesel, bor, dan lain-lain. Toko 
+                        </p>
+                </div>
+
+                <div class="grid-padding text-center">
+                        <div class="row">
+                        <div class="col-lg-4 column">
+                        <h3 class="icon-title text-white">Gratis Ongkir</h3>
+                        <p class="icon-caption text-secondary">
+                        Nikmati Gratis Ongkir ke seluruh wilayah
+                        Yogyakarta
+                        </p>
+                        </div>
+                        <div class="col-lg-4 column">
+                        <h3 class="icon-title text-white">Produk Lengkap</h3>
+                        <p class="icon-caption text-secondary">
+                        Menyediakan berbagai produk yang paling dicari oleh pembeli
+                        </p>
+                        </div>
+                        <div class="col-lg-4 column">
+                        <h3 class="icon-title text-white">Banyak Discount</h3>
+                        <p class="icon-caption text-secondary">
+                        Memiliki berbagai discount menanti, mulai dari 10% hingga 50%
+                        </p>
+                        </div>
+                        </div>
+                </div>
+
+                <div class="card-block" id="contact">
+                        <div class="card">
+                        <div class="d-flex flex-lg-row flex-column align-items-center">
+                        <div class="me-lg-3">
+                        <img
+                                src="img/illustrasi.png"
+                                alt="" / style="width: 200px;">
+                        </div>
+                        <div class="flex-grow-1 text-lg-start text-center card-text">
+                        <h3 class="card-title">
+                                Masih belum yakin mau beli ?
+                        </h3>
+                        <p class="card-caption">
+                                Tunggu apa lagi ? hubungi sekarang untuk bertanya lebih lanjut, cukup klik button di samping
+                        </p>
+                        </div>
+                        <div class="card-btn-space">
+                        <button class="btn btn-card text-white">
+                                <a href="https://api.whatsapp.com/send?phone=+6282135649141" target="blank" class="nav-link text-white">Buy Now</a>
+                        </button>
+                        <button class="btn btn-outline">
+                        <a href="https://api.whatsapp.com/send?phone=+6282135649141" target="blank" class="nav-link text-secondary">Contact Me</a>
+                        </button>
+                        </div>
+                        </div>
+                        </div>
+                </div>
+                <p class="text-center text-white p-5">
+                        Copyright © Az Zahra 2021
+                </p>
                 </div>
         </section>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>

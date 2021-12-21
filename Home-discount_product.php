@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Home</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style3.css">
+        <link rel="stylesheet" href="css/style.css">
         </head>
         <body>
         <section class="h-100 w-100" style="box-sizing: border-box; position: relative;background-color:#211F2D;">
@@ -198,7 +198,7 @@
                                 <?php $no++; ?>
                         <div class="col">
                                 <div class="card">
-                                <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-warning" >Discount <?php echo $r['diskon_produk']; ?> %</p>
+                                <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-warning" >Discount <?php echo $r['diskon_produk']; ?>%</p>
                                 <div class="text-center p-3 border-bottom">
                                         <img src="Dasboard/gambar_diskon/<?php echo $r['foto_produk']; ?>" width="200px" class=" img-thumbnail border-0" alt="...">
                                 </div>

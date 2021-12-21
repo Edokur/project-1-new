@@ -12,9 +12,11 @@ $cek = mysqli_query($con, "SELECT * FROM users where username='$_POST[username]'
       mysqli_query($con, $sql);
       header("location:login.php");
     }else{
-      echo "<script>alert('Mohon cek kembali Password');</script>";
+      echo "<script>alert('Mohon cek kembali Password');
+      window.location='forgot_pass_two.php';</script>";
     }
   }else{
-    echo "<script>alert('username tidak terdaftar');</script>";
+    echo "<script>alert('username tidak terdaftar');
+    window.location='forgot_pass_one.php';</script>";
   }
 ?>

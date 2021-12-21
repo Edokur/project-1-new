@@ -9,7 +9,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SB Admin 2 - Blank</title>
+        <title>Old Product</title>
 
         <!-- Custom fonts for this template-->
         <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -72,7 +72,7 @@
                         <!-- <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                         </div> -->
-                        <div class="sidebar-brand-text mx-3">Toko Az Zahra</div>
+                        <div class="sidebar-brand-text mx-3">Dashboard</div>
                 </a>
 
                 <!-- Divider -->
@@ -93,7 +93,7 @@
                         Katalog Product
                 </div>
 
-                <li class="nav-item active">
+                <li class="nav-item ">
                         <a class="nav-link" href="new_product.php">
                         <i class="fas fa-tags"></i>
                         <span>New Product</span></a>
@@ -103,7 +103,7 @@
                         <i class="fas fa-percent"></i>
                         <span>Discount Product</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item active">
                         <a class="nav-link" href="old_product.php">
                         <i class="fas fa-tools"></i>
                         <span>Old Product</span></a>
@@ -134,25 +134,6 @@
                                 <i class="fa fa-bars"></i>
                         </button>
 
-                        <!-- Topbar Search -->
-                        
-                        <form action="" method="GET" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                                <div class="input-group">
-                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."aria-label="Search" aria-describedby="basic-addon2" name="cari">
-                                <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button" name="cari">
-                                        <i class="fas fa-search fa-sm"></i>
-                                        </button>
-                                </div>
-                                <?php
-                                        if(isset($_GET['cari'])){
-                                        $cari = $_GET['cari'];
-                                        echo "<b>Hasil pencarian : ".$cari."</b>";
-                                        }
-                                ?>
-                                </div>
-                        </form>
-
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
 
@@ -169,19 +150,6 @@
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                         aria-labelledby="userDropdown">
-                                        <a class="dropdown-item" href="#">
-                                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Profile
-                                        </a>
-                                        <a class="dropdown-item" href="#">
-                                        <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Settings
-                                        </a>
-                                        <a class="dropdown-item" href="#">
-                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Activity Log
-                                        </a>
-                                        <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout
@@ -197,59 +165,13 @@
                         <!-- Begin Page Content -->
                         <div class="container-fluid">
 
-                        <!-- Form Inputan -->
-                        <h3 class="my-3">
-                                Form Data
-                        </h3>
-                        <div class="col bg-white p-5 rounded">
-                        <form action="new_proses.php" method="POST" enctype="multipart/form-data">
-                                <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Kode Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="kode_Produk" placeholder="Masukan Kode Produk">
-                                </div>
-                                <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Nama Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="nama_Produk" placeholder="Masukan Nama Produk">
-                                </div>
-                                <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Harga Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="harga_Produk" placeholder="Masukan Harga Produk">
-                                </div>
-                                <div class="mb-3">
-                                        <label for="exampleFormControlInput1" class="form-label">Stock Produk</label>
-                                        <input type="text" class="form-control" id="exampleFormControlInput1" name="stock_Produk" placeholder="Masukan Stock Produk">
-                                </div>
-                                <div class="form-floating mb-3">
-                                        <label for="floatingTextarea2">Detail Produk</label>
-                                        <textarea class="form-control" placeholder="Masukan Detail Produk" name="detail_Produk" id="floatingTextarea2" style="height: 200px"></textarea>
-                                </div>
-                                <div class="mb-3">
-                                        <label for="formFile" class="form-label">Gambar Produk</label>
-                                        <input class="form-control text-center" type="file" id="formFile" name="gambar_Produk" >
-                                        <p style="color: red">Ekstensi yang diperbolehkan .png | .jpg | .jpeg | .gif</p>
-                                </div>
-                                <div class="row">
-                                        <div class="col-6 text-center">
-                                                <button type="Reset" class="btn btn-danger my-3 text-center px-5">Reset Data</button>
-                                        </div>
-                                        <div class="col-6 text-center">
-                                                <input type="submit" value="Kirim data" class="btn btn-primary my-3 text-center px-5">
-                                        </div>
-                                </div>
-                        </form>
-                        </div>
                         <!-- Page Heading -->
                         <div class="col mt-5">
                                 <div class="row">
                                         <div class="col-6">
                                                 <h3 class="my-3">
-                                                        New Product
+                                                        Old Product
                                                 </h3>
-                                        </div>
-                                        <div class="col-6 text-right">
-                                                <a href="">
-                                                        <button type="button" class="btn btn-primary my-3 text-right"><i class="fas fa-plus pr-2"></i>Tambah Data</button>
-                                                </a>
                                         </div>
                                 </div>
                         </div>
@@ -337,7 +259,7 @@
                 <footer class="sticky-footer bg-white">
                         <div class="container my-auto">
                         <div class="copyright text-center my-auto">
-                                <span>Copyright &copy; Your Website 2021</span>
+                                <span>Copyright &copy; Az Zahra Store 2021</span>
                         </div>
                         </div>
                 </footer>

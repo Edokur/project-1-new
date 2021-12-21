@@ -9,6 +9,8 @@ $emailUser = $_POST['email'];
     // Kirimkan password ke alamat email terkait
     header ("location:forgot_pass_two.php");
   }else{
-    echo "<script>alert('username dan email tidak terdaftar');</script>";
+    echo "<script>alert('username dan email tidak terdaftar');
+          window.location='forgot_pass_one.php';
+          </script>";
   }
 ?>
