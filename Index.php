@@ -322,13 +322,13 @@
                         Old Product
                 </h2>
                 <div class="row row-cols-1 row-cols-md-3 g-4 my-3 px-3">
-                        <div class="col">
                         <?php 
                                 $sql = "SELECT * FROM produk ORDER BY id_produk DESC LIMIT 6";
                                 $no = 1;
                                 $data = mysqli_query($con, $sql);
                                 while($x = mysqli_fetch_array($data)){
                         ?>
+                        <div class="col">
                                 <div class="card">
                                 <p class="mt-4 px-5 p-2 rounded position-absolute text-white bg-danger">Old </p>
                                 <?php $no++; ?>
